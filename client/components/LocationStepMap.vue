@@ -14,6 +14,7 @@
 <style scoped>
 div {
   height: 50vh;
+  border-radius: 1em;
 }
 </style>
 
