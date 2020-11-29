@@ -1,9 +1,12 @@
 <template>
   <div>
     <h2>{{ item.name }}</h2>
+
     <!-- TODO: Implement proper images. !-->
     <img width="200" height="200" src="https://via.placeholder.com/200">
+
     <p>Rs {{ item.price }} la livre</p>
+
     <button @click="$emit('add-to-cart', item.id)">
       Met dan cadi
     </button>
