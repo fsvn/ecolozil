@@ -3,7 +3,7 @@
     <h2>{{ item.name }}</h2>
     <!-- TODO: Implement proper images. !-->
     <img width="200" height="200" src="https://via.placeholder.com/200">
-    <p>pou Rs {{ item.price }} la livre</p>
+    <p>Rs {{ item.price }} la livre</p>
     <button @click="$emit('add-to-cart', item)">
       Met dan cadi
     </button>

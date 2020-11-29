@@ -101,7 +101,8 @@ export default {
   },
   computed: {
     noItems: function() {
-      return Object.keys(this.cart).length;
+      console.log('memes');
+      return this.cart;
     }
   },
   methods: {
