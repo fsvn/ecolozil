@@ -1,7 +1,7 @@
 <template>
   <nav>
     <h1>e-Bazzar</h1>
-    <p>Aste legim, frui ek produi frai online.</p>
+    <p>Aste legim, fri ek prodwi fre online.</p>
   </nav>
 </template>
 
