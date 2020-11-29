@@ -3,7 +3,6 @@
     <h1>Produi</h1>
     <p>Man produi ki pe vende.</p>
 
-    <!-- TODO: Consider implementing as grid. !-->
     <div class="items-table" v-if="items.length > 0">
       <Item
         v-for="item in items"
