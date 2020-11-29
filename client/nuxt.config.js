@@ -34,7 +34,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     //'@nuxtjs/eslint-module'
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -49,6 +50,12 @@ export default {
   proxy: {
     '/api': {
       target: 'http://localhost:3080/',
+    }
+  },
+
+  fontawesome: {
+    icons: {
+      solid: true
     }
   }
 }
