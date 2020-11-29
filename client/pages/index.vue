@@ -1,23 +1,42 @@
 <template>
   <div>
-    <h1>Produi</h1>
-    <p>Man produi ki pe vende.</p>
+    <section>
+      <h1><span class="step">1</span> Produi</h1>
+      <p>Man produi ki pe vende.</p>
 
-    <div class="items-table" v-if="items.length > 0">
-      <Item
-        v-for="item in items"
-        :key="item.id"
-        :item="item"
-      ></Item>
-    </div>
-    <p v-else>
-      Pena okenn produi ki pe vende.
-    </p>
+      <div class="items-table" v-if="items.length > 0">
+        <Item
+          v-for="item in items"
+          :key="item.id"
+          :item="item"
+        ></Item>
+      </div>
+      <p v-else>
+        Pena okenn produi ki pe vende.
+      </p>
+    </section>
+
+    <section>
+      <h1><span class="step">2</span> Cadi</h1>
+      <p>Man produi ki ena dan to cadi</p>
+
+
+    </section>
 
   </div>
 </template>
 
 <style scoped>
+.step {
+  display: inline-block;
+  color: white;
+  background: rgb(147, 211, 147);
+  border-radius: 100%;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}
+
 .items-table {
   display: grid;
   /* TODO: Figure out how to automatically scale this. */
@@ -25,8 +44,8 @@
   grid-gap: 10px;
 }
 
-ul {
-  padding: 0;
+section {
+  padding-bottom: 2em;
 }
 </style>
 
