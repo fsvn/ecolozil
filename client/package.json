@@ -16,7 +16,8 @@
     "@nuxtjs/proxy": "^2.0.1",
     "bootstrap-vue": "^2.19.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "nuxt-leaflet": "0.0.22"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

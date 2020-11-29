@@ -18,14 +18,7 @@
     </section>
 
     <section>
-      <h1><span class="step">2</span>Lokasion</h1>
-      <p>Kot sa pu kit ou man prodwi?</p>
-
-      <!-- TODO: Implement. -->
-    </section>
-
-    <section>
-      <h1><span class="step">3</span>Kadi</h1>
+      <h1><span class="step">2</span>Kadi</h1>
       <p>
         Check man prodwi ki ou finn met dan ou kadi avan aste.
         Ou ena {{ cartNoItems }} prodwi dan ou kadi.
@@ -35,6 +28,13 @@
           <p>{{ items[id] }} {{ count }}</p>
         </div>
       </div>
+    </section>
+
+    <section>
+      <h1><span class="step">3</span>Lokasion</h1>
+      <p>Kot sa pu delivre ou order?</p>
+
+      <Map />
     </section>
 
     <section>
