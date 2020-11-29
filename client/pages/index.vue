@@ -4,7 +4,7 @@
       <h1><span class="step">1</span>Prodwi</h1>
       <p>Met man prodwi ki pe vande dan ou kadi.</p>
 
-      <div class="item-table" v-if="items.length > 0">
+      <div class="item-table" v-if="noItems > 0">
         <Item
           v-for="item in items"
           :key="item.id"
@@ -28,11 +28,11 @@
       <h1><span class="step">3</span>Kadi</h1>
       <p>
         Check man prodwi ki ou finn met dan ou kadi avan aste.
-        Ou ena {{ noItems }} prodwi dan ou kadi.
+        Ou ena {{ cartNoItems }} prodwi dan ou kadi.
       </p>
       <div class="cart-table">
-        <div v-for="(count, item) in cart" :key="item.id">
-          <p>{{ item }} {{ count }}</p>
+        <div v-for="(count, id) in cart" :key="id">
+          <p>{{ items[id] }} {{ count }}</p>
         </div>
       </div>
     </section>
@@ -80,36 +80,42 @@ section {
 export default {
   data() {
     return {
-      items: [
-      {
-        id: 1,
-        name: 'Pome de terre',
-        price: 20,
-      },
-      {
-        id: 2,
-        name: 'Pome d\' amour',
-        price: 20,
-      },
-      {
-        id: 3,
-        name: 'Karot',
-        price: 30,
-      }],
-      cart: {}
+      cart: {},
+      items: {
+        1: {
+          id: 1,
+          name: 'Pome de terre',
+          price: 20,
+        },
+        2: {
+          id: 2,
+          name: 'Pome d\' amour',
+          price: 20,
+        },
+        3: {
+          id: 3,
+          name: 'Karot',
+          price: 30,
+        }
+      }
     }
   },
   computed: {
+    cartNoItems: function() {
+      return Object.keys(this.cart).length;
+    },
+    cartItems: function() {
+      return Object.keys(this.cart).map(id => this.items[id]);
+    },
     noItems: function() {
-      console.log('memes');
-      return this.cart;
+      return Object.keys(this.items).length;
     }
   },
   methods: {
-    addToCart: function(item) {
-      if (!this.cart[item.id])
-        this.cart[item.id] = 0;
-      this.cart[item.id]++;
+    addToCart: function(itemId) {
+      if (!this.cart[itemId])
+        this.$set(this.cart, itemId, 0);
+      this.cart[itemId]++;
     }
   },
   async created() {
