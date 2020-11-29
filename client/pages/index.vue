@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <h1><span class="step">1</span>Prodwi</h1>
+      <h1><Step :count=1 />Prodwi</h1>
       <p>Met man prodwi ki pe vande dan ou kadi.</p>
 
       <div class="item-table" v-if="noItems > 0">
@@ -18,7 +18,7 @@
     </section>
 
     <section>
-      <h1><span class="step">2</span>Kadi</h1>
+      <h1><Step :count=2 />Kadi</h1>
       <p>
         Check man prodwi ki ou finn met dan ou kadi avan aste.
         Ou ena {{ cartNoItems }} prodwi dan ou kadi.
@@ -31,14 +31,14 @@
     </section>
 
     <section>
-      <h1><span class="step">3</span>Lokasion</h1>
+      <h1><Step :count=3 />Lokasion</h1>
       <p>Kot sa pu delivre ou order?</p>
 
       <Map />
     </section>
 
     <section>
-      <h1><span class="step">4</span>Aste</h1>
+      <h1><Step :count=4 />Aste</h1>
       <p>Met ou man linformasion pu complet ou asa.</p>
 
       <!-- TODO: Implement. -->
@@ -48,17 +48,6 @@
 </template>
 
 <style scoped>
-.step {
-  display: inline-block;
-  color: white;
-  background: rgb(147, 211, 147);
-  border-radius: 100%;
-  width: 1.5em;
-  height: 1.5em;
-  text-align: center;
-  margin-right: 0.8em;
-}
-
 .item-table {
   display: grid;
   /* TODO: Figure out how to automatically scale this. */
