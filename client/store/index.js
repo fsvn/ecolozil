@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export const state = () => ({
   items: {
     1: {
@@ -29,12 +31,9 @@ export const mutations = {
   },
   addToCart(state, itemId) {
     // Create item in cart if not exists.
-    if (!state.cart[itemId]) {
-      // Clone the object; otherwise Vue would not be able to track the newly
-      // added properties.
-      state.cart[itemId] = 0;
-      state.cart = { ...state.cart };
-    }
+    if (!state.cart[itemId])
+      // Ask Vue to track the newly added property.
+      Vue.set(state.cart, itemId, 0);
 
     state.cart[itemId]++;
   }
