@@ -2,7 +2,7 @@
   <div>
     <section>
       <h1><span class="step">1</span> Produi</h1>
-      <p>Man produi ki pe vende.</p>
+      <p>Met man produi ki pe vande dan ou cadi.</p>
 
       <div class="items-table" v-if="items.length > 0">
         <Item
@@ -12,13 +12,13 @@
         ></Item>
       </div>
       <p v-else>
-        Pena okenn produi ki pe vende.
+        Sorry, pena okenn produi ki pe vende en se momen.
       </p>
     </section>
 
     <section>
       <h1><span class="step">2</span> Cadi</h1>
-      <p>Man produi ki ena dan to cadi</p>
+      <p>Check man produi ki ou finn met dan ou cadi avan aste.</p>
 
 
     </section>
@@ -45,7 +45,7 @@
 }
 
 section {
-  padding-bottom: 2em;
+  padding-bottom: 3em;
 }
 </style>
 
