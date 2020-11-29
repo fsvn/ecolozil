@@ -9,7 +9,7 @@
       <BaseInput type="text" placeholder="Nimero Telefonn" />
     </div>
 
-    <BaseButton text="Aste" @click.native="buy"/>
+    <BaseButton @click.native="buy">Aste</BaseButton>
   </div>
 </template>
 

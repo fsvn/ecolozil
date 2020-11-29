@@ -7,9 +7,9 @@
 
     <p>Rs {{ item.price }} la livre</p>
 
-    <button @click="$store.commit('addToCart', item.id)">
-      Met dan cadi
-    </button>
+    <BaseButton @click.native="$store.commit('addToCart', item.id)">
+      + Kadi
+    </BaseButton>
   </div>
 </template>
 
