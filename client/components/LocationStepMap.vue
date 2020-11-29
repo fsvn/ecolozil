@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       zoom: 11,
-      center: [-20.225153682432275, 57.55093796339634],
+      center: [-20.23362167787819, 57.49720573425294],
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
     }
   },
