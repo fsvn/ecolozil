@@ -7,7 +7,7 @@
 
     <p>Rs {{ item.price }} la livre</p>
 
-    <button @click="$emit('add-to-cart', item.id)">
+    <button @click="$store.commit('addToCart', item.id)">
       Met dan cadi
     </button>
   </div>
@@ -15,6 +15,6 @@
 
 <script>
 export default {
-  props: ['item']
+  props: ['item'],
 }
 </script>

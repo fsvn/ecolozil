@@ -18,3 +18,19 @@
   flex-direction: column;
 }
 </style>
+
+<script>
+export default {
+  computed: {
+    cart: function() {
+      return this.$store.state.cart;
+    },
+    items: function() {
+      return this.$store.state.items;
+    },
+    cartNoItems: function() {
+      return Object.keys(this.cart).length;
+    }
+  }
+}
+</script>
