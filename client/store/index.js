@@ -4,12 +4,12 @@ export const state = () => ({
   items: {
     1: {
       id: 1,
-      name: 'Pome de terre',
+      name: 'Pomdeter',
       price: 20,
     },
     2: {
       id: 2,
-      name: 'Pome d\' amour',
+      name: 'Tomat',
       price: 20,
     },
     3: {
