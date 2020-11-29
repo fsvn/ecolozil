@@ -1,75 +1,33 @@
 <template>
   <div>
-    <section>
-      <h1><Step :count=1 />Prodwi</h1>
-      <p>Met man prodwi ki pe vande dan ou kadi.</p>
+    <Step count="1" title="Prodwi">
+      <ItemStep />
+    </Step>
 
-      <div class="item-table" v-if="noItems > 0">
-        <Item
-          v-for="item in items"
-          :key="item.id"
-          :item="item"
-          v-on:add-to-cart="addToCart"
-        ></Item>
-      </div>
-      <p v-else>
-        Sorry, pena okenn prodwi ki pe vende en se momen.
-      </p>
-    </section>
+    <Step count="2" title="Kadi">
+      <CartStep />
+    </Step>
 
-    <section>
-      <h1><Step :count=2 />Kadi</h1>
-      <p>
-        Check man prodwi ki ou finn met dan ou kadi avan aste.
-        Ou ena {{ cartNoItems }} prodwi dan ou kadi.
-      </p>
-      <div class="cart-table">
-        <div v-for="(count, id) in cart" :key="id">
-          <p>{{ items[id] }} {{ count }}</p>
-        </div>
-      </div>
-    </section>
+    <Step count="3" title="Lokasion">
+      <LocationStep />
+    </Step>
 
-    <section>
-      <h1><Step :count=3 />Lokasion</h1>
-      <p>Kot sa pu delivre ou order?</p>
-
-      <Map />
-    </section>
-
-    <section>
-      <h1><Step :count=4 />Aste</h1>
-      <p>Met ou man linformasion pu complet ou asa.</p>
-
-      <!-- TODO: Implement. -->
-    </section>
-
+    <Step count="4" title="Aste">
+      <BuyStep />
+    </Step>
   </div>
 </template>
 
 <style scoped>
-.item-table {
-  display: grid;
-  /* TODO: Figure out how to automatically scale this. */
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-}
-
-.cart-table {
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  padding-bottom: 3em;
-}
 </style>
 
 <script>
 export default {
   data() {
     return {
+      // Dictionary of items in the cart.
       cart: {},
+      // Dictionary of items.
       items: {
         1: {
           id: 1,

@@ -1,5 +1,8 @@
 <template>
-  <span>{{ count }}</span>
+  <section>
+    <h1><span>{{ count }}</span>{{ title }}</h1>
+    <slot></slot>
+  </section>
 </template>
 
 <style scoped>
@@ -13,10 +16,14 @@ span {
   text-align: center;
   margin-right: 0.8em;
 }
+
+section {
+  padding-bottom: 3em;
+}
 </style>
 
 <script>
 export default {
-  props: ['count']
+  props: ['count', 'title']
 }
 </script>
