@@ -13,6 +13,12 @@
   </div>
 </template>
 
+<style scoped>
+img {
+  border-radius: 1em;
+}
+</style>
+
 <script>
 export default {
   props: ['item'],
