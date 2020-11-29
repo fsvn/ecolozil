@@ -18,7 +18,7 @@ span {
 }
 
 section {
-  padding-bottom: 3em;
+  padding: 1em 0;
 }
 </style>
 
