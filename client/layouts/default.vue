@@ -1,10 +1,18 @@
 <template>
   <div>
-    <Nuxt />
+    <TheNavbar />
+    <main>
+      <Nuxt />
+    </main>
   </div>
 </template>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family:
     'Source Sans Pro',
@@ -22,5 +30,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+main {
+  margin: 1em 2em;
 }
 </style>
