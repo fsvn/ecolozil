@@ -22,7 +22,7 @@
 export default {
   async created() {
     try {
-      this.$store.state.items = await this.$axios.$get('/api/items');
+      this.$store.commit('setItems', await this.$axios.$get('/api/items'));
     } catch (error) {
       // TODO: Set error message or something.
       console.log('Failed to retrieve items');

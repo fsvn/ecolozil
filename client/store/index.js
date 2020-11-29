@@ -1,5 +1,4 @@
 export const state = () => ({
-  cart: {},
   items: {
     1: {
       id: 1,
@@ -16,10 +15,18 @@ export const state = () => ({
       name: 'Karot',
       price: 30,
     }
-  }
+  },
+  cart: {},
+  marker: null
 });
 
 export const mutations = {
+  setItems(state, items) {
+    state.items = items;
+  },
+  setMarker(state, marker) {
+    state.marker = marker;
+  },
   addToCart(state, itemId) {
     // Create item in cart if not exists.
     if (!state.cart[itemId]) {
