@@ -2,22 +2,16 @@
   <div>
     <p>Met ou man linformasion pu complet ou asa.</p>
 
-    <div class="form">
-      <BaseInput type="text" placeholder="Nom" />
-      <BaseInput type="text" placeholder="Dernie Nom" />
-      <BaseInput type="text" placeholder="Email" />
-      <BaseInput type="text" placeholder="Nimero Telefonn" />
+    <div style="margin-bottom: 1em">
+      <BaseInput type="text" placeholder="Nom" @keydown.native="onName" />
+      <BaseInput type="text" placeholder="Dernie Nom" @keydown.native="onName" />
+      <BaseInput type="text" placeholder="Email" @keydown.native="onEmail" />
+      <BaseInput type="text" placeholder="Nimero Telefonn" @keydown.native="onPhone" />
     </div>
 
     <BaseButton @click.native="buy">Aste</BaseButton>
   </div>
 </template>
-
-<style scoped>
-.form {
-  margin-bottom: 1em;
-}
-</style>
 
 <script>
 export default {
@@ -30,16 +24,28 @@ export default {
     },
     marker: function() {
       return this.$store.state.marker;
+    },
+    ready: function() {
+      return this.shoppingReady &&
+             this.locationReady &&
+             this.buyReady;
     }
   },
   methods: {
+    onName: function(event) {
+      console.log('memes');
+    },
+    onEmail: function(event) {
+
+    },
+    onPhone: function(event) {
+
+    },
     buy: function() {
-      console.log(this.items);
-      if (!this.marker) {
-        console.error('Did not set marker.');
-      } else {
+      if (this.ready)
+        console.error('The submission is not ready.');
+      else
         console.log('we buying');
-      }
     }
   }
 }

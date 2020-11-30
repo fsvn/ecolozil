@@ -16,18 +16,6 @@
 
 <script>
 export default {
-  computed: {
-    shoppingReady: function() {
-      return Object.keys(this.$store.state.cart).length > 0;
-    },
-    locationReady: function() {
-      return this.$store.state.marker != null;
-    },
-    buyReady: function() {
-      // TODO: Implement.
-      return false;
-    }
-  },
   async created() {
     // Try to fetch data from the database instance.
     try {
