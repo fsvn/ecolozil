@@ -40,8 +40,8 @@ const Order = mongoose.model('Order', {
 });
 
 // Run this to set up intially.
-function setup() {
-  Item.insertMany([
+async function setup() {
+  await Item.insertMany([
     {
       name: 'Tomat',
       price: 20
