@@ -7,7 +7,7 @@
 
     <p>Rs {{ item.price }} la livre</p>
 
-    <BaseButton @click.native="$store.commit('addToCart', item.id)">
+    <BaseButton @click.native="$store.commit('addToCart', item._id)">
       <FontAwesomeIcon icon="cart-plus" style="font-size: 1.5em"/>
     </BaseButton>
   </div>
@@ -21,6 +21,6 @@ img {
 
 <script>
 export default {
-  props: ['item'],
+  props: ['item']
 }
 </script>

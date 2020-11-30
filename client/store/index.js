@@ -1,23 +1,7 @@
 import Vue from 'vue';
 
 export const state = () => ({
-  items: {
-    1: {
-      id: 1,
-      name: 'Pomdeter',
-      price: 20,
-    },
-    2: {
-      id: 2,
-      name: 'Tomat',
-      price: 20,
-    },
-    3: {
-      id: 3,
-      name: 'Karot',
-      price: 30,
-    }
-  },
+  items: {},
   cart: {},
   marker: null
 });

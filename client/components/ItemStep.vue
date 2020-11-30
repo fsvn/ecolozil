@@ -5,7 +5,7 @@
     <div class="item-table" v-if="noItems > 0">
       <ItemStepCard
         v-for="item in items"
-        :key="item.id"
+        :key="item._id"
         :item="item"
       ></ItemStepCard>
     </div>
