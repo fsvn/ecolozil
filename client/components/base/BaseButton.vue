@@ -18,6 +18,7 @@ button:hover {
 
 button:active {
   opacity: 90%;
+  transition: 128ms;
 }
 </style>
 
