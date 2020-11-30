@@ -7,10 +7,7 @@ export default {
   props: ['itemId', 'count'],
   computed: {
     item: function() {
-      return this.items[this.itemId]
-    },
-    items: function() {
-      return this.$store.state.items;
+      return this.$store.state.items[this.itemId]
     }
   }
 }

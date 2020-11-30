@@ -7,7 +7,7 @@
         v-for="item in items"
         :key="item._id"
         :item="item"
-      ></ItemStepCard>
+      />
     </div>
     <p v-else>
       Sorry, pena okenn prodwi ki pe vende en se momen.
