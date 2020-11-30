@@ -25,7 +25,7 @@ export const mutations = {
     if (state.cart[itemId]) {
       let count = --state.cart[itemId];
       if (count == 0)
-        delete state.cart[itemId];
+        Vue.delete(state.cart, itemId);
     }
   }
 }
