@@ -13,6 +13,7 @@
         :count="count"
       />
     </div>
+    <p>Total: Rs {{ total }} </p>
   </div>
 </template>
 
@@ -29,11 +30,17 @@ export default {
     cart: function() {
       return this.$store.state.cart;
     },
+    cartNoItems: function() {
+      return Object.keys(this.cart).length;
+    },
     items: function() {
       return this.$store.state.items;
     },
-    cartNoItems: function() {
-      return Object.keys(this.cart).length;
+    total: function() {
+      let total = 0;
+      for (let [itemId, count] of Object.entries(this.cart))
+        total += count * this.items[itemId].price;
+      return total;
     }
   }
 }
