@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <div class="name">{{ item.name }}</div>
+    <div class="name">
+      {{ item.name }}
+    </div>
 
     <div style="display: flex">
       <div class="count">{{ count }}</div>
@@ -17,6 +19,11 @@
   border: 1px solid rgb(150, 150, 150);
   border-radius: 0.2em;
   padding: 0.5em;
+  margin: 0.5em 0;
+}
+
+.main:first {
+  border-radius: 1em;
 }
 
 .name {
