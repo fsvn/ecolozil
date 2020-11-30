@@ -2,7 +2,9 @@
   <div>
     <TheNavbar />
     <main>
-      <Nuxt />
+      <div class="app">
+        <Nuxt />
+      </div>
     </main>
   </div>
 </template>
@@ -33,7 +35,11 @@ html {
 }
 
 main {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: 770px;
+}
+
+.app {
+  margin: 1em 1em;
 }
 </style>
