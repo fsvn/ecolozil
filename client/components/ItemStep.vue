@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Met man prodwi ki pe vande dan ou kadi.</p>
+    <p>Met mannnnn prodwi ki pe vande dan ou kadi.</p>
 
     <div class="item-table" v-if="noItems > 0">
       <ItemStepCard
