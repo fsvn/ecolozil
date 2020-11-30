@@ -1,6 +1,6 @@
 <template>
   <img
-    style="border-radius: 1em"
+    :style="{ 'border-radius': borderRadius }"
     :width="size"
     :height="size"
     :src="image"
@@ -15,6 +15,9 @@ export default {
     src: String
   },
   computed: {
+    borderRadius: function() {
+      return this.size < 200 ? '0.5em' : '1em';
+    },
     image: function() {
       if (this.item.image)
         return this.item.image;
