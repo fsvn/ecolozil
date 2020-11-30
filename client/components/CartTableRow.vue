@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <div class="name">
+    <div>
+      <ItemImage :size=50 :item-id="itemId" />
+
       {{ item.name }}
     </div>
 
@@ -21,15 +23,6 @@
   border: 1px solid rgb(150, 150, 150);
   border-radius: 0.2em;
   padding: 0.5em;
-  margin: 0.5em 0;
-}
-
-.main:first {
-  border-radius: 1em;
-}
-
-.name {
-  margin: 0;
 }
 
 .count {

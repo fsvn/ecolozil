@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="cart-table">
+    <div>
       <CartTableRow
         v-for="(count, id) in cart"
         :key="id"
@@ -8,16 +8,10 @@
         :count="count"
       />
     </div>
+
     <p>Total: Rs {{ total }} </p>
   </div>
 </template>
-
-<style scoped>
-.cart-table {
-  display: flex;
-  flex-direction: column;
-}
-</style>
 
 <script>
 export default {
