@@ -1,6 +1,6 @@
 <template>
   <button>
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
@@ -21,9 +21,3 @@ button:active {
   transition: 128ms;
 }
 </style>
-
-<script>
-export default {
-  props: ['text']
-}
-</script>
