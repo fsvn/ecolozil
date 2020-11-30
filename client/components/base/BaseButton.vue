@@ -15,6 +15,10 @@ button {
 button:hover {
   background: rgb(147, 211, 147);
 }
+
+button:active {
+  opacity: 90%;
+}
 </style>
 
 <script>
