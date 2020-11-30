@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div id="cart-table">
       <CartTableEntry
         v-for="(count, id) in cart"
         :key="id"
@@ -9,9 +9,20 @@
       />
     </div>
 
-    <p>Total: Rs {{ total }} </p>
+    <h3>Total</h3>
+    <h4>Rs {{ total }} </h4>
   </div>
 </template>
+
+<style scoped>
+#cart-table {
+  margin-bottom: 2em;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+</style>
 
 <script>
 export default {
