@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <CartTableRow
+      <CartTableEntry
         v-for="(count, id) in cart"
         :key="id"
         :item-id="id"

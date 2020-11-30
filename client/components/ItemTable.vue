@@ -1,6 +1,6 @@
 <template>
   <div class="item-table">
-    <ItemTableRow
+    <ItemTableEntry
       v-for="item in items"
       :key="item._id"
       :item-id="item._id"
