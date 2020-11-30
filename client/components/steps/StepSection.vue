@@ -13,7 +13,7 @@
 <style scoped>
 span {
   display: inline-block;
-  border: solid 1px rgb(147, 211, 147);
+  border: solid 1px rgb(235, 115, 115);
   border-radius: 100%;
   width: 1.5em;
   height: 1.5em;
@@ -28,6 +28,7 @@ section {
 
 .ready {
   color: white;
+  border-color: rgb(147, 211, 147);
   background: rgb(147, 211, 147);
 }
 </style>
