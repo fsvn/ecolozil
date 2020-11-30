@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    itemId: Number,
+    itemId: String,
     size: Number,
     src: String
   },
