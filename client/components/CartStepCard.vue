@@ -6,7 +6,9 @@
 
     <div style="display: flex">
       <div class="count">{{ count }}</div>
-      <BaseButton @click.native="$store.commit('removeFromCart', item._id)">-</BaseButton>
+      <BaseButton @click.native="$store.commit('removeFromCart', itemId)">
+        -
+      </BaseButton>
     </div>
   </div>
 </template>
@@ -38,15 +40,13 @@
 
 <script>
 export default {
-  props: ['itemId', 'count'],
+  props: {
+    itemId: String,
+    count: Number
+  },
   computed: {
     item: function() {
       return this.$store.state.items[this.itemId]
-    }
-  },
-  methods: {
-    removeFromCart: function() {
-
     }
   }
 }
