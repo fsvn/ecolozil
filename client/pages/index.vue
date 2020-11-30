@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Step count="1" title="Shopping">
-      <ItemStep />
-    </Step>
+    <StepSection count="1" title="Shopping">
+      <ShoppingStep />
+    </StepSection>
 
-    <Step count="3" title="Lokasion">
+    <StepSection count="2" title="Lokasion">
       <LocationStep />
-    </Step>
+    </StepSection>
 
-    <Step count="4" title="Aste">
+    <StepSection count="3" title="Aste">
       <BuyStep />
-    </Step>
+    </StepSection>
   </div>
 </template>
 
