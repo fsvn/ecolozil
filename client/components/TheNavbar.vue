@@ -2,7 +2,7 @@
   <nav>
     <div class="nav-container">
       <h1>e-Bazzar</h1>
-      <p>Aste legim, fri ek prodwi fre online.</p>
+      <p>Aste legim, fri ek prodwi fre enn 3 etap.</p>
     </div>
   </nav>
 </template>
