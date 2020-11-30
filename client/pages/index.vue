@@ -1,11 +1,7 @@
 <template>
   <div>
-    <Step count="1" title="Prodwi">
+    <Step count="1" title="Shopping">
       <ItemStep />
-    </Step>
-
-    <Step count="2" title="Kadi">
-      <CartStep />
     </Step>
 
     <Step count="3" title="Lokasion">

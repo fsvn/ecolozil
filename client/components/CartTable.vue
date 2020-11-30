@@ -1,12 +1,7 @@
 <template>
   <div>
-    <p>
-      Check man prodwi ki ou finn met dan ou kadi avan aste.
-      Ou ena {{ cartNoItems }} prodwi dan ou kadi.
-    </p>
-
     <div class="cart-table">
-      <CartStepCard
+      <CartTableRow
         v-for="(count, id) in cart"
         :key="id"
         :item-id="id"
