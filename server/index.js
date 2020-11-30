@@ -30,7 +30,8 @@ mongoose.connection.on('error', e => {
 const Item = mongoose.model('Item', {
   name: String,
   image: String,
-  price: Number
+  price: Number,
+  grade: String
 });
 
 const Order = mongoose.model('Order', {
@@ -44,15 +45,18 @@ async function setup() {
   await Item.insertMany([
     {
       name: 'Tomat',
-      price: 20
+      price: 20,
+      grade: 'A'
     },
     {
       name: 'Pomedeter',
-      price: 30
+      price: 30,
+      grade: 'B'
     },
     {
       name: 'Karot',
-      price: 20
+      price: 20,
+      grade: 'C'
     }
   ])
 }

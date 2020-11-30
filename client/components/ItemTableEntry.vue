@@ -7,12 +7,12 @@
     <div id="container">
       <BaseButton id="add-btn" @click.native="$store.commit('addToCart', itemId)">
         <div>
-          <span id="grade">A</span> Grade
+          <span id="grade">{{ item.grade ? item.grade : "?" }}</span> Grade
         </div>
 
         <div>
           <FontAwesomeIcon icon="cart-plus" style="font-size: 1.5em"/>
-          Rs {{ item.price }}
+          Rs {{ item.price }} / Livre
         </div>
       </BaseButton>
     </div>
