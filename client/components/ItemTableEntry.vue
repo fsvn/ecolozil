@@ -2,18 +2,16 @@
   <div>
     <h2>{{ item.name }}</h2>
 
-    <ItemImage id="image" :size=200 :item-id="itemId" />
+    <ItemImage
+      id="image"
+      :size=200
+      :item-id="itemId"
+    />
 
     <div id="container">
       <BaseButton id="add-btn" @click.native="$store.commit('addToCart', itemId)">
-        <div>
-          <span id="grade">{{ item.grade ? item.grade : "?" }}</span> Grad
-        </div>
-
-        <div>
-          <FontAwesomeIcon icon="cart-plus" style="font-size: 1.5em"/>
-          Rs {{ item.price }} / Livre
-        </div>
+        <FontAwesomeIcon id="add-icon" icon="cart-plus" style="font-size: 1.5em"/>
+        Rs {{ item.price }} / Livre
       </BaseButton>
     </div>
   </div>
@@ -38,7 +36,10 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+}
+
+#add-icon {
+  margin-right: 0.5em;
 }
 </style>
 
