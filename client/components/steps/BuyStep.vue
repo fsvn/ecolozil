@@ -3,10 +3,29 @@
     <p>Met ou man linformasion pu complet ou asa.</p>
 
     <div style="margin-bottom: 1em">
-      <BaseInput type="text" placeholder="Nom" @keydown.native="onName" />
-      <BaseInput type="text" placeholder="Dernie Nom" @keydown.native="onName" />
-      <BaseInput type="text" placeholder="Email" @keydown.native="onEmail" />
-      <BaseInput type="text" placeholder="Nimero Telefonn" @keydown.native="onPhone" />
+      <BaseInput
+        placeholder="Nom"
+        v-model="form.firstname"
+        v-bind:error="!firstnameOk"
+      />
+
+      <BaseInput
+        placeholder="Dernie Nom"
+        v-model="form.lastname"
+        v-bind:error="!lastnameOk"
+      />
+
+      <BaseInput
+        placeholder="Email"
+        v-model="form.email"
+        v-bind:error="!emailOk"
+      />
+
+      <BaseInput
+        placeholder="Nimero Telefonn"
+        v-model="form.phone"
+        v-bind:error="!phoneOk"
+      />
     </div>
 
     <BaseButton @click.native="buy">Aste</BaseButton>
@@ -16,15 +35,6 @@
 <script>
 export default {
   computed: {
-    items: function() {
-      return this.$store.state.items;
-    },
-    cart: function() {
-      return this.$store.state.cart;
-    },
-    marker: function() {
-      return this.$store.state.marker;
-    },
     ready: function() {
       return this.shoppingReady &&
              this.locationReady &&
@@ -32,20 +42,13 @@ export default {
     }
   },
   methods: {
-    onName: function(event) {
-      console.log('memes');
-    },
-    onEmail: function(event) {
+    buy: async function() {
+      if (!this.buyReady)
+        return false;
 
-    },
-    onPhone: function(event) {
+      let res = await this.$axios.post('/api/order', this.form);
 
-    },
-    buy: function() {
-      if (this.ready)
-        console.error('The submission is not ready.');
-      else
-        console.log('we buying');
+      console.log(res);
     }
   }
 }

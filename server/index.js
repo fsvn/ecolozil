@@ -1,11 +1,18 @@
 import mongoose from 'mongoose';
 import express from 'express';
-//import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 
 // Application instance.
 const app = express();
-// Parse POST data.
-//app.use(bodyParser);
+
+// Middlewares.
+app.use(bodyParser.json());
+app.use(function (err, req, res, next) {
+  console.error('Someting went wrong!');
+  console.error(err.stack);
+
+  res.status(500).send();
+})
 
 // Application configuration.
 const config = {
@@ -37,28 +44,17 @@ const Item = mongoose.model('Item', {
 const Order = mongoose.model('Order', {
   firstname: String,
   lastname: String,
+  email: String,
   phone: Number
 });
 
 // Run this to set up intially.
 async function setup() {
   await Item.insertMany([
-    {
-      name: 'Tomat',
-      price: 20,
-      grade: 'A'
-    },
-    {
-      name: 'Pomedeter',
-      price: 30,
-      grade: 'B'
-    },
-    {
-      name: 'Karot',
-      price: 20,
-      grade: 'C'
-    }
-  ])
+    { name: 'Tomat', price: 20 },
+    { name: 'Pomedeter', price: 30 },
+    { name: 'Karot', price: 20 }
+  ]);
 }
 
 app.get('/api/items', async (req, res) => {
@@ -69,14 +65,13 @@ app.get('/api/items', async (req, res) => {
 });
 
 app.post('/api/order', async (req, res) => {
-  await Order.insertMany({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    phone: req.body.phone
-  });
+  let doc = await Order.insertMany(req.body)
+  let obj = {
+    token: doc[0]._id
+  };
 
-  // TODO: Figure out if we're handling this properly.
-  res.send();
+  // Respond with token.
+  res.json(obj);
 });
 
 app.listen(config.port, () => console.log(`Listenting on port ${config.port}...`));

@@ -3,7 +3,13 @@ import Vue from 'vue';
 export const state = () => ({
   items: {},
   cart: {},
-  marker: null
+  marker: null,
+  form: {
+    firstname: null,
+    lastname: null,
+    email: null,
+    phone: null
+  }
 });
 
 export const mutations = {

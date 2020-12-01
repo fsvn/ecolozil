@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     item: function() {
-      return this.$store.state.items[this.itemId]
+      return this.items[this.itemId];
     }
   }
 }
