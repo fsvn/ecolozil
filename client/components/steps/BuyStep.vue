@@ -28,12 +28,27 @@
       />
     </div>
 
-    <BaseButton @click.native="buy">Aste</BaseButton>
+    <BaseButton @click.native="buy">
+      Aste
+    </BaseButton>
+
+    <h1>Token</h1>
+    <div v-if="token">
+      <h2>{{ token }}</h2>
+    </div>
+    <div v-else>
+      <p>Ou pa encore complet ou transaksion.</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data: function() {
+    return {
+      token: null
+    }
+  },
   computed: {
     ready: function() {
       return this.shoppingReady &&
@@ -48,7 +63,7 @@ export default {
 
       let res = await this.$axios.post('/api/order', this.form);
 
-      console.log(res);
+      this.token = res.token;
     }
   }
 }

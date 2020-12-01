@@ -66,9 +66,7 @@ app.get('/api/items', async (req, res) => {
 
 app.post('/api/order', async (req, res) => {
   let doc = await Order.insertMany(req.body)
-  let obj = {
-    token: doc[0]._id
-  };
+  let obj = { token: doc[0]._id };
 
   // Respond with token.
   res.json(obj);
