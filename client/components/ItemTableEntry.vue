@@ -34,6 +34,7 @@
 
 #add-btn {
   flex: 1;
+  max-width: 200px;
   display: flex;
   flex-direction: row;
 }
