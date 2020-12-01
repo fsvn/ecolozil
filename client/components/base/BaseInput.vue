@@ -1,10 +1,10 @@
 <template>
   <div>
     <input
-      type="text"
+      :type="actualType"
       :placeholder="placeholder"
-      @input="onInput"
       v-model="value"
+      v-on:input="onInput"
       v-bind:class="{ error: error }"
     />
   </div>
@@ -16,6 +16,7 @@
   border-color: red !important;
 }
 
+input[type="password"],
 input[type="text"] {
   box-sizing: border-box;
   width: 100%;
@@ -29,10 +30,15 @@ input[type="text"] {
 
 <script>
 export default {
-  props: ['placeholder', 'error'],
+  props: ['placeholder', 'error', 'type'],
   data() {
     return {
       value: ''
+    }
+  },
+  computed: {
+    actualType: function() {
+      return this.type ? this.type : 'text'
     }
   },
   methods: {

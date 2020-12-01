@@ -7,13 +7,17 @@ const app = express();
 
 // Middlewares.
 app.use(bodyParser.json());
+app.use(function (req, res, next) {
+  console.log(`${req.method}: ${req.path}`);
+  next();
+});
 app.use(function (err, req, res, next) {
   console.error('Someting went wrong!');
   console.error(err.stack);
 
   res.status(500).send();
-  next();
-})
+});
+
 
 // Application configuration.
 const config = {
@@ -56,6 +60,15 @@ const Order = mongoose.model('Order', {
   credit: Number
 });
 
+const Driver = mongoose.model('Driver', {
+  orders: [],
+  rating: Number,
+  firstname: String,
+  lastname: String,
+  email: String,
+  password: String
+})
+
 // Run this to set up intially.
 async function setup() {
   await Item.insertMany([
@@ -74,22 +87,37 @@ app.get('/api/items', async (req, res) => {
 
 app.post('/api/order', async (req, res) => {
   let cred = 0;
-  let toinsert = req.body;
 
   if (req.body.form.prevToken) {
     let prevOrder = await Order.findById(req.body.form.prevToken);
+
     if (prevOrder)
       cred = Math.min(500, (prevOrder.credit ? prevOrder.credit : 0) + 100);
-    console.log(prevOrder);
-    console.log(`cred: ${cred}`);
   }
 
-  let doc = await Order.insertMany({ ...toinsert, credit: cred })
+  let doc = await Order.insertMany({ ...req.body, credit: cred })
 
   let obj = { token: doc[0]._id, credit: cred };
 
   // Respond with token.
   res.json(obj);
+});
+
+app.post('/api/driver/register', async (req, res) => {
+  let doc = await Driver.insertMany(req.body);
+
+  // TODO: Implement proper authentication token... some of these days.
+  res.json(doc[0]);
+});
+
+app.post('/api/driver/login', async (req, res) => {
+  let doc = await Driver.findOne({
+    'email': req.body.email,
+    'password': req.body.password
+  });
+
+  // TODO: Implement proper authentication token... some of these days.
+  res.json(doc);
 });
 
 app.listen(config.port, () => console.log(`Listenting on port ${config.port}...`));

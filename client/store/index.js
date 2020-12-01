@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 export const state = () => ({
+  driver: null,
   items: {},
   cart: {},
   marker: null,
@@ -14,6 +15,12 @@ export const state = () => ({
 });
 
 export const mutations = {
+  login(state, auth) {
+    state.driver = auth;
+  },
+  logout(state) {
+    state.driver = null;
+  },
   setItems(state, items) {
     state.items = items;
   },
