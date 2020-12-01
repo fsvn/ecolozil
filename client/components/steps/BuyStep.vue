@@ -26,27 +26,44 @@
         v-model="form.phone"
         v-bind:error="!phoneOk"
       />
+
+      <BaseInput
+        placeholder="Ancien Token"
+        v-model="form.prevToken"
+      />
     </div>
 
     <BaseButton @click.native="buy">
       Aste
     </BaseButton>
 
-    <h1>Token</h1>
+    <h2>Token</h2>
     <div v-if="token">
-      <h2>{{ token }}</h2>
+      <p>Ou token est: </p>
+      <h4>{{ token }}</h4>
+      <p v-if="credit > 0">
+        Ou ena {{ credit }} credits, ou inn ggn {{ credit / 100}} % off!
+      </p>
     </div>
     <div v-else>
       <p>Ou pa encore complet ou transaksion.</p>
     </div>
+
   </div>
 </template>
+
+<style scoped>
+h2 {
+  color: rgb(147, 211, 147);
+}
+</style>
 
 <script>
 export default {
   data: function() {
     return {
-      token: null
+      token: null,
+      credit: 0
     }
   },
   computed: {
@@ -58,12 +75,16 @@ export default {
   },
   methods: {
     buy: async function() {
-      if (!this.buyReady)
-        return false;
+      if (this.buyReady) {
+        let res = await this.$axios.post('/api/order', {
+          form: this.form,
+          cart: this.cart,
+          marker: this.marker
+        });
 
-      let res = await this.$axios.post('/api/order', this.form);
-
-      this.token = res.token;
+        this.token = res.data.token;
+        this.credit = res.data.credit;
+      }
     }
   }
 }

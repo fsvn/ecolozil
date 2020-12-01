@@ -12,6 +12,7 @@ app.use(function (err, req, res, next) {
   console.error(err.stack);
 
   res.status(500).send();
+  next();
 })
 
 // Application configuration.
@@ -42,10 +43,17 @@ const Item = mongoose.model('Item', {
 });
 
 const Order = mongoose.model('Order', {
-  firstname: String,
-  lastname: String,
-  email: String,
-  phone: Number
+  cart: Object,
+  marker: {lng: Number, lat: Number},
+  form: {
+    credit: Number,
+    firstname: String,
+    lastname: String,
+    email: String,
+    phone: Number,
+    prevToken: String
+  },
+  credit: Number
 });
 
 // Run this to set up intially.
@@ -65,8 +73,20 @@ app.get('/api/items', async (req, res) => {
 });
 
 app.post('/api/order', async (req, res) => {
-  let doc = await Order.insertMany(req.body)
-  let obj = { token: doc[0]._id };
+  let cred = 0;
+  let toinsert = req.body;
+
+  if (req.body.form.prevToken) {
+    let prevOrder = await Order.findById(req.body.form.prevToken);
+    if (prevOrder)
+      cred = Math.min(500, (prevOrder.credit ? prevOrder.credit : 0) + 100);
+    console.log(prevOrder);
+    console.log(`cred: ${cred}`);
+  }
+
+  let doc = await Order.insertMany({ ...toinsert, credit: cred })
+
+  let obj = { token: doc[0]._id, credit: cred };
 
   // Respond with token.
   res.json(obj);

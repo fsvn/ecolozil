@@ -35,10 +35,10 @@ if (!Vue.__mixin__) {
         return this.$store.state.marker != null;
       },
       buyReady: function() {
-      return this.firstnameOk &&
-             this.lastnameOk &&
-             this.emailOk &&
-             this.phoneOk;
+        return this.firstnameOk &&
+              this.lastnameOk &&
+              this.emailOk &&
+              this.phoneOk;
       }
     }
   });

@@ -8,7 +8,8 @@ export const state = () => ({
     firstname: null,
     lastname: null,
     email: null,
-    phone: null
+    phone: null,
+    prevToken: null
   }
 });
 
