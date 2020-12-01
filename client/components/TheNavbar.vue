@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="nav-container">
-      <h1>e-Bazzar</h1>
+      <NuxtLink to="/"><img src="/logo.png" width="150px"></NuxtLink>
       <p>Aste legim, fri ek prodwi fre enn 3 etap.</p>
     </div>
   </nav>
@@ -15,11 +15,12 @@ nav {
 }
 
 .nav-container {
+  text-align: center;
   margin: 0 auto;
   max-width: 770px;
 }
 
-h1 {
-  letter-spacing: 2px;
+p {
+  letter-spacing: 1.5px;
 }
 </style>
