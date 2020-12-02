@@ -35,7 +35,7 @@ export default {
       this.$router.push({ path: '/driver/login' });
     }
   },
-  craeted() {
+  created() {
     if (!this.driver)
       this.$router.push({ path:'/driver/login' });
   }
