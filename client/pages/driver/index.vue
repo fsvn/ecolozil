@@ -8,7 +8,7 @@
       <h1>Location</h1>
       <p>Your current location on the map.</p>
 
-      <LocationStepMap />
+      <DriverMap />
     </section>
 
     <section>

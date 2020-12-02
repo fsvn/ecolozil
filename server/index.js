@@ -66,8 +66,11 @@ const Driver = mongoose.model('Driver', {
   firstname: String,
   lastname: String,
   email: String,
-  password: String
+  password: String,
+  location: {lng: Number, lat: Number}
 })
+
+let drivers = {};
 
 // Run this to set up intially.
 async function setup() {
@@ -106,6 +109,8 @@ app.post('/api/order', async (req, res) => {
 app.post('/api/driver/register', async (req, res) => {
   let doc = await Driver.insertMany(req.body);
 
+  drivers[doc[0]._id] = doc;
+
   // TODO: Implement proper authentication token... some of these days.
   res.json(doc[0]);
 });
@@ -116,8 +121,20 @@ app.post('/api/driver/login', async (req, res) => {
     'password': req.body.password
   });
 
+  drivers[doc._id] = doc;
+
   // TODO: Implement proper authentication token... some of these days.
   res.json(doc);
+});
+
+app.get('/api/driver/list', async (req, res) => {
+  res.json(drivers);
+});
+
+app.post('/api/driver/location', async (req, res) => {
+  drivers[req.body._id].location = req.body.location;
+
+  res.send();
 });
 
 app.listen(config.port, () => console.log(`Listenting on port ${config.port}...`));
