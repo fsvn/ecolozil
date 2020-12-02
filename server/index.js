@@ -110,6 +110,10 @@ app.post('/api/driver/register', async (req, res) => {
   let doc = await Driver.insertMany(req.body);
 
   drivers[doc[0]._id] = doc;
+  drivers[doc[0]._id].location = {
+    lat: -20.23362167787819,
+    lng: 57.49720573425294
+  };
 
   // TODO: Implement proper authentication token... some of these days.
   res.json(doc[0]);
@@ -122,6 +126,10 @@ app.post('/api/driver/login', async (req, res) => {
   });
 
   drivers[doc._id] = doc;
+  drivers[doc._id].location = {
+    lat: -20.23362167787819,
+    lng: 57.49720573425294
+  };
 
   // TODO: Implement proper authentication token... some of these days.
   res.json(doc);
@@ -132,6 +140,8 @@ app.get('/api/driver/list', async (req, res) => {
 });
 
 app.post('/api/driver/location', async (req, res) => {
+  console.log(req.body);
+
   drivers[req.body._id].location = req.body.location;
 
   res.send();
