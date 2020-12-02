@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="nav-container">
-      <h1>e-Bazzar</h1>
+      <img src="/logo.png" width="150px"></img>
       <p>Aste legim, fri ek prodwi fre enn 3 etap.</p>
     </div>
   </nav>
@@ -15,6 +15,7 @@ nav {
 }
 
 .nav-container {
+  text-align: center;
   margin: 0 auto;
   max-width: 770px;
 }
